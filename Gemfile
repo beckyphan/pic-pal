@@ -26,7 +26,7 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 gem 'devise'
 gem 'cancancan'
-gem 'simple-form'
+gem 'simple_form'
 gem 'rspec-rails'
 
 # Use Active Storage variant
