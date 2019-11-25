@@ -28,6 +28,7 @@ gem 'devise'
 gem 'cancancan'
 gem 'simple_form'
 gem 'rspec-rails'
+gem 'omniauth-google-oauth2'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
