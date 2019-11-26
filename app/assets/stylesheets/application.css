@@ -30,3 +30,28 @@
 div.picpal-root .center-on-page {
   right: 32%;
 }
+
+a:link, a:visited {
+  opacity: 0.5;
+  text-decoration: none;
+}
+
+a.black-text {
+  color: black;
+}
+
+a.white-text {
+  color:white;
+}
+
+a.white-text:hover {
+  opacity: 1;
+  transition: opacity 500ms linear;
+  color: white;
+}
+
+a.black-text:hover {
+  opacity: 1;
+  transition: opacity 500ms linear;
+  color: black;
+}
