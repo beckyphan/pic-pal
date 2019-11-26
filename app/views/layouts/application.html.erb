@@ -19,7 +19,7 @@
         <%= link_to "Dashboard", user_path(current_user), class: "nav-link white-text" %>
         <%= link_to "Movies", movies_path, class: "nav-link white-text" %>
         <%= link_to "Events", events_path, class: "nav-link white-text" %>
-        <%= link_to "Log Out", destroy_user_session_path, class: "nav-link white-text" %>
+        <%= link_to "Log Out", destroy_user_session_path, class: "nav-link white-text", method: "delete" %>
       </nav>
     <% end %>
       <p class="notice"><%= notice %></p>

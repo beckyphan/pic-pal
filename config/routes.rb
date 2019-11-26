@@ -45,6 +45,19 @@ end
 #                                       PATCH    /movies/:id(.:format)                                                                    movies#update
 #                                       PUT      /movies/:id(.:format)                                                                    movies#update
 #                                       DELETE   /movies/:id(.:format)                                                                    movies#destroy
+#                               reviews GET      /reviews(.:format)                                                                       reviews#index
+#                                       POST     /reviews(.:format)                                                                       reviews#create
+#                            new_review GET      /reviews/new(.:format)                                                                   reviews#new
+#                           edit_review GET      /reviews/:id/edit(.:format)                                                              reviews#edit
+#                                review GET      /reviews/:id(.:format)                                                                   reviews#show
+#                                       PATCH    /reviews/:id(.:format)                                                                   reviews#update
+#                                       PUT      /reviews/:id(.:format)                                                                   reviews#update
+#                                       DELETE   /reviews/:id(.:format)                                                                   reviews#destroy
+#                                  user GET      /users/:id(.:format)                                                                     users#show
+#                            user_event GET      /users/:user_id/events/:id(.:format)                                                     events#show
+#                                       GET      /users/:id(.:format)                                                                     users#show
+#                           user_review GET      /users/:user_id/reviews/:id(.:format)                                                    reviews#show
+#                                       GET      /users/:id(.:format)                                                                     users#show
 #                      new_user_session GET      /users/sign_in(.:format)                                                                 devise/sessions#new
 #                          user_session POST     /users/sign_in(.:format)                                                                 devise/sessions#create
 #                  destroy_user_session DELETE   /users/sign_out(.:format)                                                                devise/sessions#destroy
