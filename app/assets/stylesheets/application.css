@@ -25,5 +25,8 @@
   margin: 0;
   position: absolute;
   top: 50%;
-  left: 50%;
+}
+
+div.picpal-root .center-on-page {
+  right: 32%;
 }
