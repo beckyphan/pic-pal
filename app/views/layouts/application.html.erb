@@ -15,11 +15,11 @@
 
   <body>
     <% if user_signed_in? %>
-      <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
-        <%= link_to "Dashboard", user_path %>
-        <%= link_to "Movies", movies_path %>
-        <%= link_to "Events", events_path %>
-        <%= link_to "Log Out", destroy_user_session_path %>
+      <nav class="navbar navbar-dark fixed-top">
+        <%= link_to "Dashboard", user_path(current_user), class: "nav-link white-text" %>
+        <%= link_to "Movies", movies_path, class: "nav-link white-text" %>
+        <%= link_to "Events", events_path, class: "nav-link white-text" %>
+        <%= link_to "Log Out", destroy_user_session_path, class: "nav-link white-text" %>
       </nav>
     <% end %>
       <p class="notice"><%= notice %></p>
