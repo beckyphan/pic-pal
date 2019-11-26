@@ -3,6 +3,17 @@ Rails.application.routes.draw do
   resources :comments
   resources :events
   resources :movies
+  resources :reviews
+  resources :users, only: [:show]
+
+  resources :users, only: [:show] do
+    resources :events, only: [:show]
+  end
+
+  resources :users, only: [:show] do
+    resources :reviews, only: [:show]
+  end
+
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
