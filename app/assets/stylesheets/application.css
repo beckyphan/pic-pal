@@ -35,13 +35,6 @@
   height: 150px;
 }
 
-div.user-reg {
-  background-image: url('https://images.unsplash.com/photo-1542204165-65bf26472b9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1867&q=80');
-  background-repeat: no-repeat;
-  background-size: cover;
-  text-align: center;
-}
-
 a:link, a:visited {
   opacity: 0.5;
   text-decoration: none;
