@@ -31,7 +31,7 @@ class MoviesController < ApplicationController
   def update
   end
 
-  def delete
+  def destroy
   end
 
   private
