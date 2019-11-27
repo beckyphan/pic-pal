@@ -16,11 +16,14 @@ class EventsController < ApplicationController
       datetime_params.values[2].to_i,
       datetime_params.values[3].to_i,
       datetime_params.values[4].to_i)
-    @event = Event.new(event_params)
 
-    if @event.save!
+    binding.pry
+    @event = Event.create(event_params)
+
+    if @event.update(datetime: datetime_params)
       redirect_to movie_path(@event.movie_id)
     else
+      @event.destroy
       render "new"
     end
   end

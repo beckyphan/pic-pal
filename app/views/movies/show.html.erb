@@ -7,19 +7,29 @@
 </style>
 
 <div class="form-container-show">
+  <br>
   <h2><%= @movie.name %></h2>
   <h6><%= @movie.genre %></h6>
+  <br><br>
   <div class="two-column">
 
     <div class="left-column">
       <% if @events.size > 0 %>
-        <h5>Upcoming Events</h5>
+        <h5>Upcoming Events</h5><br>
           <% @events.each do |e| %>
-            <%= e.title %> | <%= e.datetime.strftime("%A, %m/%d/%Y") %> | <%= e.datetime.strftime("%I:%M%p") %> | <%= e.location %>
+          <%= link_to event_path(e.id), class: "opaque" do %>
+            <span>
+              <%= e.title %> |  <%= e.location %>
+              <br>
+              <%= e.datetime.strftime("%A, %m/%d/%Y") %> | <%= e.datetime.strftime("%I:%M %p") %>
+            </span>
+          <% end %>
+            <br>
           <% end %>
       <% else %>
         <h5>No Upcoming Events</h5>
       <% end %>
+      <br>
       <%= link_to new_event_path, class: "opaque" do %>
         <button>Create an Event</button>
       <% end %>
@@ -27,7 +37,7 @@
 
     <div class="right-column">
       <% if @movie.reviews.size > 0 %>
-        <h5>Movie Reviews</h5>
+        <h5>Movie Reviews</h5><br>
           <% @movie.reviews.each do |r| %>
             <div class="review-card">
               <span class="review-info">
@@ -46,6 +56,7 @@
       <% else %>
         <h5>No Reviews Yet</h5>
       <% end %>
+      <br>
       <%= link_to new_movie_review_path(@movie.id), class: "opaque" do %>
         <button>Add a Review</button>
       <% end %>

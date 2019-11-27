@@ -106,7 +106,14 @@ div.bubble-card a {
   text-decoration: none;
 }
 
+a.opaque {
+  text-decoration: none;
+  color: black;
+}
+
 div.bubble-card:hover,  a.opaque:hover {
+  color: black;
+  text-decoration: none;
   opacity: 0.95;
   transition: opacity 200ms linear;
 }

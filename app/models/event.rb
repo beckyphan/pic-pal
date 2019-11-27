@@ -4,5 +4,5 @@ class Event < ApplicationRecord
 
   belongs_to :movie
 
-  validates :user_id, uniqueness: { scope: :datetime, message: "you are already hosting another event at this date/time" }
+  validates :host_id, uniqueness: { scope: :datetime, message: "you are already hosting another event at this date/time" }
 end
