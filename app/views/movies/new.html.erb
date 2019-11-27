@@ -1,2 +1,21 @@
-<h1>Movie#create</h1>
-<p>Find me in app/views/movie/create.html.erb</p>
+<div class="picpal-root fill-page">
+  <div class="form-container-2">
+  <h2 class="page-title">add new movie</h2>
+
+  <%= simple_form_for(:@movie) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.input :title %>
+      <%= f.input :genre %>
+      <%= f.input :movie_url %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, "Create" %>
+    </div>
+  <% end %>
+
+  </div>
+
+</div>
