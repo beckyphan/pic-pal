@@ -29,7 +29,12 @@
       <% if @movie.reviews.size > 0 %>
         <h5>Movie Reviews</h5>
           <% @movie.reviews.each do |r| %>
-            Review Here
+            <div class="review-card">
+              <span class="review-info">
+              </span>
+              <span class="reviewer-info">
+              </span>
+            </div>
           <% end %>
       <% else %>
         <h5>No Reviews Yet</h5>
