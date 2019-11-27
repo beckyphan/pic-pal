@@ -1,0 +1,28 @@
+<style>
+  body {
+    background-image: url('https://images.unsplash.com/photo-1512149177596-f817c7ef5d4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1545&q=80');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+</style>
+
+<div class="form-container-1">
+  <h2 class="center-text">add new review</h2>
+
+  <%= simple_form_for(@review) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
+      <%= f.input :movie_id, as: :hidden, input_html: { value: params[:id] } %>
+      <%= f.input :title %>
+      <%= f.input :description %>
+      <%= f.input :rating, as: :radio_buttons, collection: [0, 1, 2, 3, 4, 5] %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, "Create" %>
+    </div>
+  <% end %>
+
+</div>

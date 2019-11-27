@@ -5,6 +5,7 @@ class ReviewsController < ApplicationController
   end
 
   def edit
+    @review = Review.find_by_id(params[:id])
   end
 
   def create
@@ -17,5 +18,5 @@ class ReviewsController < ApplicationController
 
   def review_params
     params.require(:review).permit(:user_id, :movie_id, :title, :description, :rating)
-  end 
+  end
 end
