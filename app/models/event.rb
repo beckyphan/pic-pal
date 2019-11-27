@@ -3,4 +3,6 @@ class Event < ApplicationRecord
   has_many :attendees, class_name: "User"
 
   belongs_to :movie
+
+  validates :user_id, uniqueness: { scope: :datetime, message: "you are already hosting another event at this date/time" }
 end
