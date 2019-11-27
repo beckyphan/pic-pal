@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :reviews
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-  
+
   resources :users, only: [:show]
 
   resources :users, only: [:show] do
@@ -15,6 +15,10 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show] do
     resources :reviews, only: [:show]
+  end
+
+  resources :movies, only: [:show] do
+    resources :reviews, only: [:new]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
