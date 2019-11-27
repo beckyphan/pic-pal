@@ -7,7 +7,7 @@
 </style>
 
 <div class="form-container-1">
-  <h2 class="center-text">add new review</h2>
+  <h2 class="center-text"><%= @movie %></h2>
 
   <%= simple_form_for(@review) do |f| %>
     <%= f.error_notification %>
@@ -21,7 +21,7 @@
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "Create" %>
+      <%= f.button :submit, "Update" %>
     </div>
   <% end %>
 
