@@ -20,6 +20,9 @@
       <% else %>
         <h5>No Upcoming Events</h5>
       <% end %>
+      <%= link_to new_event_path, class: "opaque" do %>
+        <button>Create an Event</button>
+      <% end %>
     </div>
 
     <div class="right-column">
@@ -30,6 +33,9 @@
           <% end %>
       <% else %>
         <h5>No Reviews Yet</h5>
+      <% end %>
+      <%= link_to new_review_path, class: "opaque" do %>
+        <button>Add a Review</button>
       <% end %>
     </div>
 
