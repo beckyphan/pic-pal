@@ -10,12 +10,13 @@ class EventsController < ApplicationController
   end
 
   def create
-    datetime_formatted = DateTime.new(datetime_params.values[0].to_i,
+    datetime_formatted = DateTime.new(
+      datetime_params.values[0].to_i,
       datetime_params.values[1].to_i,
       datetime_params.values[2].to_i,
       datetime_params.values[3].to_i,
       datetime_params.values[4].to_i)
-    @event = Event.new(event_params, datetime: datetime_formatted)
+    @event = Event.new(event_params)
 
     if @event.save!
       redirect_to movie_path(@event.movie_id)
