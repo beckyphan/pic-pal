@@ -1,4 +1,4 @@
-<div class="picpal-root fill-page">
+<div class="movies-index fill-page">
   <h2 class="page-title">movies</h2>
 
   <div class="movies-container">
@@ -16,11 +16,10 @@
         <% end %>
       </div>
     <% end %>
-
+    <div class="inline">
+    <%= link_to new_movie_path, class: "opaque" do %>
+      <button>Add New Movie</button>
+    <% end %>
+    </div>
   </div>
-<br><br>
-  <%= link_to new_movie_path, class: "opaque" do %>
-    <button>Add New Movie</button>
-  <% end %>
-
 </div>

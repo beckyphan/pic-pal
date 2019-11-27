@@ -11,9 +11,20 @@ div.fill-page {
 
 .picpal-root {
   background-image: url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80');
-  background-repeat: repeat;
+  background-repeat: no-repeat;
+  background-size: cover;
   color: white;
   text-align: center;
+}
+
+.movies-index {
+  background-image: url('https://images.unsplash.com/photo-1494000423186-5c470f68ed62?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60');
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+  padding: 20px;
 }
 
 div.picpal-root .center-on-page {
@@ -29,7 +40,6 @@ div.form-container-2 {
   justify-content: center;
   align-content: center;
   opacity: 0.95;
-  overflow-y:scroll;
 }
 
 input.btn {
@@ -44,6 +54,8 @@ div.movies-container {
   justify-content: space-between;
   align-items: stretch;
   align-content:space-between;
+  max-height: 600px;
+  overflow-y: scroll;
 }
 
 div.bubble-card {
@@ -57,6 +69,12 @@ div.movie-card {
   padding: 15px 10px 10px 10px;
   background: white;
   color: black;
+}
+
+.inline {
+  width: 100%;
+  margin: 25px;
+  justify-content: center;
 }
 
 .movie-card img {
