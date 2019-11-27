@@ -84,11 +84,16 @@ div.movie-card {
   height: 275px;
 }
 
-a.opaque:link {
+div.bubble-card {
   opacity: 0.8;
   text-decoration: none;
 }
 
-a.opaque:hover {
+div.bubble-card a {
+  text-decoration: none;
+}
+
+div.bubble-card:hover,  a.opaque:hover {
   opacity: 0.95;
+  transition: opacity 200ms linear;
 }
