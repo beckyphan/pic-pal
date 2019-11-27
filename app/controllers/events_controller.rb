@@ -31,6 +31,8 @@ class EventsController < ApplicationController
   def show
     @event = Event.find_by_id(params[:id])
     @movie = Movie.find_by_id(@event.movie_id)
+    @guestlists = Guestlist.all
+    @comments = Comment.all
   end
 
   def edit

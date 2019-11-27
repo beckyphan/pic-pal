@@ -13,30 +13,43 @@
   <h6><%= @event.datetime.strftime("%A, %m/%d/%Y") %> | <%= @event.datetime.strftime("%I:%M %p") %></h6>
 
   <br>
+  <div class="two-column">
 
-  <div class="left-column">
-    <h5>Attendee List</h5>
-    <br>
-    <% if @event.attendees.size > 0 %>
-        <ul>
+    <div class="left-column">
+      <h5>Attendee List</h5>
+      <br>
+      <% if @event.attendees.size > 0 %>
           <% @event.attendees.each do |a| %>
-          <li><%= a.username %>
-            <% if a.username == current_user.username %>
-              # include delete link to remove from guest list
-            <%  end %>
-          </li>
-          <% end %>
-        </ul>
-    <% else %>
-        <p>No Guests Yet</p>
-    <% end %>
+            <%= a.username %>
+              <% if a.username == current_user.username %>
+                <%# include delete link to remove from guest list %>
+                <br>
+              <%  end %>
+            <% end %>
+      <% else %>
+          <p>No Guests Yet</p>
+      <% end %>
 
-    # form to add to attending list
+      <!-- # form to add to attending list -->
 
+    </div>
+
+    <div class="right-column">
+      <h5> Comments </h5>
+      <br>
+      <% @comments.each do |c| %>
+        <div class="bubble-card">
+          <span class="comment-card">
+            <%# iterate over comments %>
+          </span>
+        </div>
+      <% end %>
+      <br>
+
+      <% if @guestlists.where(attendee_id: current_user.id, event_id: @event.id) %>
+          <%# form to add comments IF attending %>
+      <% end %>
+
+    </div>
   </div>
-
-  <div class="right-column">
-
-  </div>
-
 </div>
