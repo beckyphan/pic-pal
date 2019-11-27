@@ -31,10 +31,17 @@
           <% @movie.reviews.each do |r| %>
             <div class="review-card">
               <span class="review-info">
+                <% r.rating.times do %>
+                  <%= stars %>
+                  <% end %>
+                  <h6><%= r.title %></h6>
+                <p><%= r.description %></p>
               </span>
               <span class="reviewer-info">
+                <p><%= r.reviewer.username %></p>
               </span>
             </div>
+            <br>
           <% end %>
       <% else %>
         <h5>No Reviews Yet</h5>
