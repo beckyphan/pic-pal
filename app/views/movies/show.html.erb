@@ -15,7 +15,7 @@
       <% if @events.size > 0 %>
         <h5>Upcoming Events</h5>
           <% @events.each do |e| %>
-            <%= e.title %> | <%= e.datetime.strftime("%A, %m/%d/%Y") %> | <%= e.datetime.strftime("%I:%M%p") %>
+            <%= e.title %> | <%= e.datetime.strftime("%A, %m/%d/%Y") %> | <%= e.datetime.strftime("%I:%M%p") %> | <%= e.location %>
           <% end %>
       <% else %>
         <h5>No Upcoming Events</h5>
