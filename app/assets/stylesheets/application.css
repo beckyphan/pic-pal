@@ -39,6 +39,10 @@ h2.page-title {
   height: 150px;
 }
 
+.center-text {
+  text-align: center;
+}
+
 a:link, a:visited {
   opacity: 0.5;
   text-decoration: none;
