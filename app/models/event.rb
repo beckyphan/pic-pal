@@ -1,6 +1,7 @@
 class Event < ApplicationRecord
   belongs_to :host, class_name: "User"
-  has_many :attendees, class_name: "User"
+  has_many :attendees, through: :guestlists
+  has_many :guestlists, foreign_key: :event_id
 
   belongs_to :movie
 

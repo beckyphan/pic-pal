@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :guestlists
   root to: "movies#home"
   resources :comments
   resources :events

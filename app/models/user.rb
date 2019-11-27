@@ -4,8 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:google_oauth2]
 
+  has_many :guestlists, foreign_key: :attendee_id
   has_many :hosted_events, foreign_key: :host_id, class_name: "Event"
-  has_many :attended_events, foreign_key: :event_id, class_name: "Event"
+  has_many :attended_events, through: :guestlist, source: :event
 
   has_many :movie_reviews, foreign_key: :review_id, class_name: "Review"
   has_many :reviewed_movies, through: :reviews, source: :movies
