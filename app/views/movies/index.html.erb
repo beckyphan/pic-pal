@@ -4,19 +4,19 @@
   <div class="movies-container">
 
     <% @movies.each do |m| %>
-      <%= link_to movie_path(m.id) do %>
+      <%= link_to movie_path(m.id), class: "opaque" do %>
         <div class="movie-card">
           <img src='<%= m.image_url %>' class="movie-img">
           <span class="movie-info">
-            <h3><%= m.name %></h3>
-            <h3><%= m.genre %></h3>
+            <h6><%= m.name %></h6>
+            <h6><%= m.genre %></h6>
           </span>
         </div>
       <% end %>
     <% end %>
-    
-  </div>
 
+  </div>
+<br><br>
   <%= link_to new_movie_path do %>
     <button>Add New Movie</button>
   <% end %>

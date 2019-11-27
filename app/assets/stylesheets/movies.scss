@@ -31,6 +31,40 @@ div.form-container-2 {
   align-content: center;
   opacity: 0.95;
 }
+
 input.btn {
   background-color: gainsboro;
+}
+
+div.movies-container {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+div.movie-card {
+  border-radius: 25px;
+  width: 225px;
+  height: 100%;
+  padding: 15px 10px 10px 10px;
+  background: white;
+  color: black;
+}
+
+.movie-card img {
+  padding: 5px;
+  border-radius: 10px;
+  width: 200px;
+  height: 275px;
+}
+
+a.opaque:link {
+  opacity: 0.8;
+  text-decoration: none;
+}
+
+a.opaque:hover {
+  opacity: 0.95;
 }
