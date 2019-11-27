@@ -1,2 +1,22 @@
-<h1>Movie#show</h1>
-<p>Find me in app/views/movie/show.html.erb</p>
+<style>
+  body {
+    background-image: url('<%= @movie.image_url %>');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+</style>
+
+<div class="form-container-show">
+  <h2><%= @movie.name %></h2>
+  <div class="two-column">
+
+    <div class="left-column">
+      Left
+    </div>
+
+    <div class="right-column">
+      Right
+    </div>
+
+  </div>
+</div>

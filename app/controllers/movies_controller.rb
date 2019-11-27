@@ -20,13 +20,14 @@ class MoviesController < ApplicationController
     end
   end
 
+  def show
+    @movie = Movie.find_by_id(params[:id])
+  end
+
   def edit
   end
 
   def update
-  end
-
-  def show
   end
 
   def delete
