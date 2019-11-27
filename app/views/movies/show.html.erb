@@ -8,14 +8,29 @@
 
 <div class="form-container-show">
   <h2><%= @movie.name %></h2>
+  <h6><%= @movie.genre %></h6>
   <div class="two-column">
 
     <div class="left-column">
-      Left
+      <% if @events.size > 0 %>
+        <h5>Upcoming Events</h5>
+          <% @events.each do |e| %>
+            <%= e.title %> | <%= e.datetime.strftime("%A, %m/%d/%Y") %> | <%= e.datetime.strftime("%I:%M%p") %>
+          <% end %>
+      <% else %>
+        <h5>No Upcoming Events</h5>
+      <% end %>
     </div>
 
     <div class="right-column">
-      Right
+      <% if @movie.reviews.size > 0 %>
+        <h5>Movie Reviews</h5>
+          <% @movie.reviews.each do |r| %>
+            Review Here
+          <% end %>
+      <% else %>
+        <h5>No Reviews Yet</h5>
+      <% end %>
     </div>
 
   </div>
