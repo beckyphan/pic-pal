@@ -21,6 +21,10 @@
   color: inherit;
 }
 
+h2.page-title {
+  margin: 75px;
+}
+
 .center-on-page {
   margin: 0;
   position: absolute;

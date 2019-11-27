@@ -1,0 +1,19 @@
+<div class="picpal-root fill-page">
+  <h2 class="page-title">movies</h2>
+
+  <div class="movies-container">
+
+    <% @movies.each do |m| %>
+      <%= link_to movie_path do %>
+        <div class="movie-card">
+          <img src='<%= m.movie_url %>' class="movie-img">
+          <span class="movie-info">
+            <h3> m.title </h3>
+            <h3> m.genre </h3>
+          </span>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+</div>

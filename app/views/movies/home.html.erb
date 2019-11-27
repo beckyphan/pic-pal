@@ -1,5 +1,11 @@
 <div class="picpal-root fill-page">
-   <%= link_to new_user_registration_path, class: "white-text" do %>
-     <h1 class="center-on-page display-1">PicPal</h1>
+  <% if !signed_in? %>
+    <%= link_to new_user_registration_path, class: "white-text" do %>
+       <h1 class="center-on-page display-1">PicPal</h1>
     <% end %>
+  <% else %>
+    <%= link_to movies_path, class: "white-text" do %>
+       <h1 class="center-on-page display-1">Picture Palace</h1>
+    <% end %>
+  <% end%>
 </div>
