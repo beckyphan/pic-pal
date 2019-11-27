@@ -34,7 +34,7 @@
       <% else %>
         <h5>No Reviews Yet</h5>
       <% end %>
-      <%= link_to new_movie_review_path, class: "opaque" do %>
+      <%= link_to new_movie_review_path(@movie.id), class: "opaque" do %>
         <button>Add a Review</button>
       <% end %>
     </div>
