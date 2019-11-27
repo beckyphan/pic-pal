@@ -28,6 +28,11 @@ class EventsController < ApplicationController
     end
   end
 
+  def show
+    @event = Event.find_by_id(params[:id])
+    @movie = Movie.find_by_id(@event.movie_id)
+  end
+
   def edit
   end
 

@@ -1,0 +1,42 @@
+<style>
+  body {
+    background-image: url('<%= @movie.image_url %>');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+</style>
+
+<div class="form-container-show">
+  <br>
+  <h2><%= @event.title %></h2>
+  <h6><%= @event.location %></h6>
+  <h6><%= @event.datetime.strftime("%A, %m/%d/%Y") %> | <%= @event.datetime.strftime("%I:%M %p") %></h6>
+
+  <br>
+
+  <div class="left-column">
+    <h5>Attendee List</h5>
+    <br>
+    <% if @event.attendees.size > 0 %>
+        <ul>
+          <% @event.attendees.each do |a| %>
+          <li><%= a.username %>
+            <% if a.username == current_user.username %>
+              # include delete link to remove from guest list
+            <%  end %>
+          </li>
+          <% end %>
+        </ul>
+    <% else %>
+        <p>No Guests Yet</p>
+    <% end %>
+
+    # form to add to attending list
+
+  </div>
+
+  <div class="right-column">
+
+  </div>
+
+</div>
