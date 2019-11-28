@@ -31,7 +31,6 @@
       <% end %>
 
       <!-- # form to add to attending list -->
-      <% binding.pry %>
       <% if @event.attendees.include?(current_user) %>
         <%# remove from attendence button %>
       <% else %>
@@ -59,3 +58,11 @@
     </div>
   </div>
 </div>
+
+<% if current_user == @event.host %>
+  <div class="inline center-text">
+    <%= link_to edit_event_path(@event.id), class: "opaque center-button" do %>
+      <button>Edit <%= @event.title %></button>
+    <% end %>
+  </div>
+  <% end %>
