@@ -14,20 +14,24 @@
   <div class="two-column">
 
     <div class="left-column">
-      <% if @events.size > 0 %>
+      <% if @events.first == nil %>
+
+        <h5>No Upcoming Events</h5>
+
+      <% else %>
+
         <h5>Upcoming Events</h5><br>
           <% @events.each do |e| %>
-          <%= link_to event_path(e.id), class: "opaque" do %>
-            <span>
-              <%= e.title %> |  <%= e.location %>
-              <br>
-              <%= e.datetime.strftime("%A, %m/%d/%Y") %> | <%= e.datetime.strftime("%I:%M %p") %>
-            </span>
-          <% end %>
+            <%= link_to event_path(e.id), class: "opaque" do %>
+              <span>
+                <%= e.title %> |  <%= e.location %>
+                <br>
+                <%= e.datetime.strftime("%A, %m/%d/%Y") %> | <%= e.datetime.strftime("%I:%M %p") %>
+              </span>
+            <% end %>
             <br>
           <% end %>
-      <% else %>
-        <h5>No Upcoming Events</h5>
+
       <% end %>
       <br>
       <%= link_to new_event_path, class: "opaque" do %>

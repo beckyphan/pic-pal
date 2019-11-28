@@ -22,7 +22,8 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Movie.find_by_id(params[:id])
-    @events= Event.all
+    @events = []
+    @events << Event.find_by(movie_id: @movie.id)
   end
 
   def edit
