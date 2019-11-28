@@ -31,6 +31,12 @@
       <% end %>
 
       <!-- # form to add to attending list -->
+      <% binding.pry %>
+      <% if @event.attendees.include?(current_user) %>
+        <%# remove from attendence button %>
+      <% else %>
+        <%# attending button %>
+      <% end %>
 
     </div>
 
