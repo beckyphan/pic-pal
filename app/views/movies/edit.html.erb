@@ -1,2 +1,27 @@
-<h1>Movie#edit</h1>
-<p>Find me in app/views/movie/edit.html.erb</p>
+<div class="picpal-root fill-page">
+  <div class="form-container-2">
+  <h2 class="page-title">edit <%= @movie.name %></h2>
+
+  <%= simple_form_for(@movie) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.input :name %>
+      <%= f.input :genre %>
+      <%= f.input :image_url %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, "Update" %>
+    </div>
+  <% end %>
+
+  </div>
+  <br>
+  <div class="inline center-text">
+    <%= link_to movie_path(@movie.id), method: "delete", class: "opaque center-button" do %>
+      <button>Delete <%= @movie.name %></button>
+    <% end %>
+  </div>
+
+</div>

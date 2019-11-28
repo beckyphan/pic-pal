@@ -27,12 +27,23 @@ class MoviesController < ApplicationController
   end
 
   def edit
+    @movie = Movie.find_by_id(params[:id])
   end
 
   def update
+    if @movie.update!(movie_params)
+      redirect_to movie_path(@movie)
+    else
+      render "edit"
+    end
   end
 
   def destroy
+    @movie = Movie.find_by_id(params[:id])
+    # consider dependencies e.g. events, reviews, etc.
+    flash[:message] = "You have deleted #{@movie.name}."
+    @movie.destroy
+    redirect_to movies_path
   end
 
   private
