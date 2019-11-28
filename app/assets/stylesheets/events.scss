@@ -12,9 +12,13 @@
 }
 .events-container {
   color: black;
-  border-radius: 25px;
+  border-radius: 10px;
   margin: 0 auto;
   background-color: white;
   width: 80%;
   opacity: 0.9;
+}
+
+.events-container .opaque span {
+  // use movie style font here
 }

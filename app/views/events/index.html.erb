@@ -1,18 +1,18 @@
 <div class="events-index fill-page">
   <h2 class="page-title">events</h2>
 
-
-  <div class="events-container">
-    TEST
     <% @events.each do |e| %>
-      <% link_to event_path(e.id) do %>
-        <span>
-          <%= e.title %> | <%= e.datetime.strftime("%A, %m/%d/%Y") %> | <%= e.datetime.strftime("%I:%M%p") %> | <%= e.location %>
-        </span>
-      <% end %>
+      <div class="bubble-card">
+        <div class="events-container">
+          <%= link_to event_path(e.id), class: "opaque" do %>
+            <span>
+              <h5><%= e.datetime.strftime("%A, %m/%d/%Y") %>   |   <%= e.datetime.strftime("%I:%M %p") %></h5>
+              <h6><%= e.title %> | <%= event_movie(e.movie_id) %> | <%= e.location %></h6>
+            </span>
+          <% end %>
+        </div>
+      </div>
     <% end %>
-    TEST
-  </div>
 
   <div class="inline">
   <%= link_to new_event_path, class: "opaque" do %>
@@ -22,4 +22,4 @@
 
 </div>
 
-# potentially add filtering to this page to sort by movie name, host, datetime
+<!-- # potentially add filtering to this page to sort by movie name, host, datetime -->
