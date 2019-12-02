@@ -29,10 +29,10 @@ class User < ApplicationRecord
   end
 
   def movies_watched
-    current_user.to_watches.where(watched: true)
+    ToWatch.where(user_id: self.id, watched: true)
   end
 
   def movies_to_watch
-    current_user.to_watches.where(watched: false)
-  end 
+    ToWatch.where(user_id: self.id, watched: false)
+  end
 end
