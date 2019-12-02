@@ -21,7 +21,6 @@
       <% if @event.attendees.size > 0 %>
 
           <% @event.attendees.each do |a| %>
-            <% binding.pry %>
             <%= a.username %>
             <% if a.username == current_user.username %>
                 <%= link_to guestlist_path(@guest.id), method: "delete",class: "opaque center-button" do %>
@@ -29,6 +28,7 @@
                   <br>
                 <% end %>
             <% end %>
+            <br>
           <% end %>
 
       <% else %>
