@@ -33,6 +33,7 @@ class EventsController < ApplicationController
     @movie = Movie.find_by_id(@event.movie_id)
     @guestlists = Guestlist.all
     @comments = Comment.all
+    @comment = Comment.new
   end
 
   def edit

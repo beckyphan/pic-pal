@@ -50,9 +50,23 @@
         </div>
       <% end %>
       <br>
+      
+      <% if @guestlists.where(attendee_id: current_user.id, event_id: @event.id).size == 1 %>
+          <div class="bubble-card">
+            <%= simple_form_for(@comment) do |f| %>
+              <%= f.error_notification %>
 
-      <% if @guestlists.where(attendee_id: current_user.id, event_id: @event.id) %>
-          <%# form to add comments IF attending %>
+              <div class="form-inputs">
+                <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
+                <%= f.input :event_id, as: :hidden, input_html: {value: @event.id } %>
+                <%= f.input :description, label: false %>
+              </div>
+
+              <div class="form-actions">
+                <%= f.button :submit, "Add Comment" %>
+              </div>
+            <% end %>
+          </div>
       <% end %>
 
     </div>
