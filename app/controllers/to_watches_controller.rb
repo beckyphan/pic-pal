@@ -1,0 +1,2 @@
+class ToWatchesController < ApplicationController
+end
