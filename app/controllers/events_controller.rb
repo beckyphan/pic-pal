@@ -23,7 +23,6 @@ class EventsController < ApplicationController
     @event = Event.create(event_params)
 
     if @event.update(datetime: datetime_formatted)
-      binding.pry
       redirect_to movie_path(@event.movie_id)
     else
       @event.destroy
@@ -34,7 +33,9 @@ class EventsController < ApplicationController
   def show
     @event = Event.find_by_id(params[:id])
     @movie = Movie.find_by_id(@event.movie_id)
-    @guestlists = Guestlist.all
+
+    @guestlist = Guestlist.where(event_id: @event.id).first
+    @guestlist ||= Guestlist.new
 
     @comments = Comment.where(event_id: @event.id)
     @comment = Comment.new

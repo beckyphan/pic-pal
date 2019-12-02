@@ -32,9 +32,22 @@
 
       <!-- # form to add to attending list -->
       <% if @event.attendees.include?(current_user) %>
-        <%# remove from attendence button %>
+          <%# remove from attendence button %>
       <% else %>
-        <%# attending button %>
+
+        <%= simple_form_for(@guestlist) do |f| %>
+          <%= f.error_notification %>
+
+          <div class="form-inputs">
+            <%= f.input :event_id, as: :hidden, input_html: { value: @event.id } %>
+            <%= f.input :attendee_id, as: :hidden, input_html: { value: current_user.id } %>
+          </div>
+
+          <div class="form-actions">
+            <center><%= f.button :submit, 'Attend' %></center>
+          </div>
+        <% end %>
+
       <% end %>
 
     </div>
@@ -54,7 +67,7 @@
         </div>
       <% end %>
 
-      <% if @guestlists.where(attendee_id: current_user.id, event_id: @event.id).size == 1 %>
+      <% if @guestlist.attendee == current_user %>
           <div class="bubble-card">
             <%= simple_form_for(@comment) do |f| %>
               <%= f.error_notification %>
