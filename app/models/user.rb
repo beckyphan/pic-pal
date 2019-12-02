@@ -12,8 +12,7 @@ class User < ApplicationRecord
   has_many :reviewed_movies, through: :movie_reviews, source: :movie
 
   has_many :to_watches
-  has_many :movies_to_watch, through: :to_watches, source: :movie, -> { where watched: false }
-  has_many :movies_seen, through: :to_watches, source: :movies, -> { where watched: true }
+  has_many :movies_to_watch, through: :to_watches, source: :movie
 
   def self.from_omniauth(access_token)
     data = access_token.info
