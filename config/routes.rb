@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :reviews
   resources :to_watches, only: [:create, :update]
 
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users, controllers: { registrations: 'users/registrations', omniauth_callbacks: 'users/omniauth_callbacks' }
 
   resources :users, only: [:show]
 

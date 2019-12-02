@@ -19,25 +19,26 @@
       <h5>Attendee List</h5>
       <br>
       <% if @event.attendees.size > 0 %>
+
           <% @event.attendees.each do |a| %>
+            <% binding.pry %>
             <%= a.username %>
-              <% if a.username == current_user.username %>
-              <%= link_to guestlist_path(@guestlist.id), method: "delete",class: "opaque center-button" do %>
-                <button>X</button>
-              <% end %>
-                <br>
-              <%  end %>
+            <% if a.username == current_user.username %>
+                <%= link_to guestlist_path(@guest.id), method: "delete",class: "opaque center-button" do %>
+                  <button>X</button>
+                  <br>
+                <% end %>
             <% end %>
+          <% end %>
+
       <% else %>
           <p>No Guests Yet</p>
       <% end %>
 
       <!-- # form to add to attending list -->
-      <% if @event.attendees.include?(current_user) %>
-          <%# remove from attendence button %>
-      <% else %>
+      <% if @event.attendees.include?(current_user) == false %>
 
-        <%= simple_form_for(@guestlist) do |f| %>
+        <%= simple_form_for(@click_to_attend) do |f| %>
           <%= f.error_notification %>
 
           <div class="form-inputs">
@@ -69,7 +70,7 @@
         </div>
       <% end %>
 
-      <% if @guestlist.attendee == current_user %>
+      <% if @guest == current_user %>
           <div class="bubble-card">
             <%= simple_form_for(@comment) do |f| %>
               <%= f.error_notification %>

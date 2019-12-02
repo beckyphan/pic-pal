@@ -34,8 +34,9 @@ class EventsController < ApplicationController
     @event = Event.find_by_id(params[:id])
     @movie = Movie.find_by_id(@event.movie_id)
 
-    @guestlist = Guestlist.where(event_id: @event.id).first
-    @guestlist ||= Guestlist.new
+    @guestlist = Guestlist.where(event_id: @event.id)
+    @guest = Guestlist.where(event_id: @event.id, attendee_id: current_user.id).first
+    @click_to_attend = Guestlist.new
 
     @comments = Comment.where(event_id: @event.id)
     @comment = Comment.new
