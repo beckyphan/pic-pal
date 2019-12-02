@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :events
   resources :movies
   resources :reviews
+  resources :to_watches, only: [:create, :update]
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
@@ -20,7 +21,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show] do
     resources :to_watches, only: [:show]
-  end 
+  end
 
   resources :movies, only: [:show] do
     resources :reviews, only: [:new]
@@ -28,8 +29,15 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
 
-
 #                                Prefix Verb     URI Pattern                                                                              Controller#Action
+#                            guestlists GET      /guestlists(.:format)                                                                    guestlists#index
+#                                       POST     /guestlists(.:format)                                                                    guestlists#create
+#                         new_guestlist GET      /guestlists/new(.:format)                                                                guestlists#new
+#                        edit_guestlist GET      /guestlists/:id/edit(.:format)                                                           guestlists#edit
+#                             guestlist GET      /guestlists/:id(.:format)                                                                guestlists#show
+#                                       PATCH    /guestlists/:id(.:format)                                                                guestlists#update
+#                                       PUT      /guestlists/:id(.:format)                                                                guestlists#update
+#                                       DELETE   /guestlists/:id(.:format)                                                                guestlists#destroy
 #                                  root GET      /                                                                                        movies#home
 #                              comments GET      /comments(.:format)                                                                      comments#index
 #                                       POST     /comments(.:format)                                                                      comments#create
@@ -63,11 +71,9 @@ end
 #                                       PATCH    /reviews/:id(.:format)                                                                   reviews#update
 #                                       PUT      /reviews/:id(.:format)                                                                   reviews#update
 #                                       DELETE   /reviews/:id(.:format)                                                                   reviews#destroy
-#                                  user GET      /users/:id(.:format)                                                                     users#show
-#                            user_event GET      /users/:user_id/events/:id(.:format)                                                     events#show
-#                                       GET      /users/:id(.:format)                                                                     users#show
-#                           user_review GET      /users/:user_id/reviews/:id(.:format)                                                    reviews#show
-#                                       GET      /users/:id(.:format)                                                                     users#show
+#                            to_watches POST     /to_watches(.:format)                                                                    to_watches#create
+#                              to_watch PATCH    /to_watches/:id(.:format)                                                                to_watches#update
+#                                       PUT      /to_watches/:id(.:format)                                                                to_watches#update
 #                      new_user_session GET      /users/sign_in(.:format)                                                                 devise/sessions#new
 #                          user_session POST     /users/sign_in(.:format)                                                                 devise/sessions#create
 #                  destroy_user_session DELETE   /users/sign_out(.:format)                                                                devise/sessions#destroy
@@ -85,3 +91,12 @@ end
 #                                       PUT      /users(.:format)                                                                         devise/registrations#update
 #                                       DELETE   /users(.:format)                                                                         devise/registrations#destroy
 #                                       POST     /users(.:format)                                                                         devise/registrations#create
+#                                  user GET      /users/:id(.:format)                                                                     users#show
+#                            user_event GET      /users/:user_id/events/:id(.:format)                                                     events#show
+#                                       GET      /users/:id(.:format)                                                                     users#show
+#                           user_review GET      /users/:user_id/reviews/:id(.:format)                                                    reviews#show
+#                                       GET      /users/:id(.:format)                                                                     users#show
+#                         user_to_watch GET      /users/:user_id/to_watches/:id(.:format)                                                 to_watches#show
+#                                       GET      /users/:id(.:format)                                                                     users#show
+#                      new_movie_review GET      /movies/:movie_id/reviews/new(.:format)                                                  reviews#new
+#                                       GET      /movies/:id(.:format)                                                                    movies#show

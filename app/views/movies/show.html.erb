@@ -61,9 +61,38 @@
         <h5>No Reviews Yet</h5>
       <% end %>
       <br>
-      <%# add control flow here if user has not seen this movie, they cannot review %>
-      <%= link_to new_movie_review_path(@movie.id), class: "opaque" do %>
-        <button>Add a Review</button>
+      <% if @watched.size == 0 %>
+        <%= simple_form_for(@to_watch) do |f| %>
+          <%= f.error_notification %>
+
+          <div class="form-inputs">
+            <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
+            <%= f.input :movie_id, as: :hidden, input_html: { value: @movie.id } %>
+            <%= f.input :watched, as: :hidden, input_html: { value: false } %>
+          </div>
+
+          <div class="form-actions">
+            <%= f.button :submit, "Want to See" %>
+          </div>
+        <% end %>
+
+          <%= simple_form_for(@towatch) do |f| %>
+            <%= f.error_notification %>
+
+            <div class="form-inputs">
+              <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
+              <%= f.input :movie_id, as: :hidden, input_html: { value: @movie.id } %>
+              <%= f.input :watched, as: :hidden, input_html: { value: true } %>
+            </div>
+
+            <div class="form-actions">
+              <%= f.button :submit, "Seen" %>
+            </div>
+        <% end %>
+      <% else %>
+        <%= link_to new_movie_review_path(@movie.id), class: "opaque" do %>
+          <button>Add a Review</button>
+        <% end %>
       <% end %>
     </div>
 

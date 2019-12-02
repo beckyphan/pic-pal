@@ -24,9 +24,9 @@ class MoviesController < ApplicationController
     @movie = Movie.find_by_id(params[:id])
     @events = []
     @events << Event.find_by(movie_id: @movie.id)
-
-    binding.pry
-    @watched = true if current_user.movies_watched.include?(@movie)
+    
+    @to_watch = ToWatch.new
+    @watched = ToWatch.where(user_id: current_user.id, movie_id: @movie.id)
   end
 
   def edit
