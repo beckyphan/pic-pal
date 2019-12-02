@@ -17,3 +17,18 @@ div.user-reg {
   text-align: center;
   display: flex;
 }
+
+div.three-columns {
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+}
+
+div.column-1, div.column-2, div.column-3 {
+  background-color: white;
+  color: black;
+  opacity: 0.9;
+  border-radius: 10px;
+  width: 30%;
+  margin: 0 auto;
+}
