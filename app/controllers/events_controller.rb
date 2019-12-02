@@ -17,7 +17,6 @@ class EventsController < ApplicationController
       datetime_params.values[3].to_i,
       datetime_params.values[4].to_i)
 
-    binding.pry
     @event = Event.create(event_params)
 
     if @event.update(datetime: datetime_params)
@@ -32,7 +31,8 @@ class EventsController < ApplicationController
     @event = Event.find_by_id(params[:id])
     @movie = Movie.find_by_id(@event.movie_id)
     @guestlists = Guestlist.all
-    @comments = Comment.all
+
+    @comments = Comment.where(event_id: @event.id)
     @comment = Comment.new
   end
 

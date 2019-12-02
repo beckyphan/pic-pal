@@ -45,12 +45,16 @@
       <% @comments.each do |c| %>
         <div class="bubble-card">
           <span class="comment-card">
-            <%# iterate over comments %>
+            <% @comments.each do |c| %>
+              <p> <%= c.description %> <br>
+                - <%= commenting_username(c.user_id) %>
+              </p>
+            <% end %>
           </span>
         </div>
       <% end %>
       <br>
-      
+
       <% if @guestlists.where(attendee_id: current_user.id, event_id: @event.id).size == 1 %>
           <div class="bubble-card">
             <%= simple_form_for(@comment) do |f| %>
