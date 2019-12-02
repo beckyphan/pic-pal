@@ -16,12 +16,12 @@
     </div>
   <% end %>
 
-  </div>
   <br>
-  <div class="inline center-text">
-    <%= link_to movie_path(@movie.id), method: "delete", class: "opaque center-button" do %>
-      <button>Delete <%= @movie.name %></button>
-    <% end %>
+    <div class="inline center-text">
+      <%= link_to movie_path(@movie.id), method: "delete", class: "opaque center-button" do %>
+        <button>Delete <%= @movie.name %></button>
+      <% end %>
+    </div>
   </div>
 
 </div>
