@@ -8,6 +8,8 @@ class EventsController < ApplicationController
     @event = Event.new
     @events = Event.all
     @movie = Movie.find_by_id(params[:movie_id])
+    
+    @movies = Movie.all
   end
 
   def create

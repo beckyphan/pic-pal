@@ -18,8 +18,7 @@
         <%= f.input :title %>
         <%= f.input :datetime %>
         <%= f.input :location %>
-        <%= f.input :movie_id %>
-        <%# <%= f.input :movie_id, as: :select #need to correct dropdown menu with list of movies %>
+        <%= f.input :movie_id,:collection => @movies,:label_method => :name,:value_method => :id,:label => "Movie" ,:include_blank => false %>
       </div>
 
       <div class="form-actions">
