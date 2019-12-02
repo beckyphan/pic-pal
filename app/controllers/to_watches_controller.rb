@@ -7,9 +7,10 @@ class ToWatchesController < ApplicationController
   end
 
   def update
-    binding.pry
-    @towatch = ToWatch.where(update_params)
-    redirect_to movie_path(@towatch.movie_id)
+    @towatch = ToWatch.where(movie_id: params[:to_watch][:movie_id], user_id: current_user.id)
+    @towatch.first.update(watched: watched_param)
+
+    redirect_to movie_path(@towatch.first.movie_id)
   end
 
   private
@@ -18,7 +19,7 @@ class ToWatchesController < ApplicationController
     params.require(:to_watch).permit(:watched, :movie_id, :user_id)
   end
 
-  def update_params
-    params.require(:to_watch).permit(:movie_id, :user_id)
+  def watched_param
+    params.require(:to_watch).permit(:watched)
   end
 end

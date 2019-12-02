@@ -99,9 +99,9 @@
             <%= f.button :submit, "Haven't Seen" %>
           </div>
         <% end %>
-
+        <br>
       <% else %>
-      
+
         <%= simple_form_for(@update_watched) do |f| %>
           <%= f.error_notification %>
           <div class="form-inputs">
@@ -113,9 +113,9 @@
             <%= f.button :submit, "Seen" %>
           </div>
         <% end %>
-
+        <br>
       <% end %>
-      <% binding.pry %>
+
       <% if @watched.size > 0 && @update_watched.watched == true %>
         <%= link_to new_movie_review_path(@movie.id), class: "opaque" do %>
           <button>Add a Review</button>
