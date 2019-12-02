@@ -22,7 +22,9 @@
           <% @event.attendees.each do |a| %>
             <%= a.username %>
               <% if a.username == current_user.username %>
-                <%# include delete link to remove from guest list %>
+              <%= link_to guestlist_path(@guestlist.id), method: "delete",class: "opaque center-button" do %>
+                <button>X</button>
+              <% end %>
                 <br>
               <%  end %>
             <% end %>

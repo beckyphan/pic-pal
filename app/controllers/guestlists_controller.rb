@@ -7,6 +7,11 @@ class GuestlistsController < ApplicationController
   end
 
   def destroy
+    @attendee = Guestlist.find_by_id(params[:id])
+    @event = Event.find_by_id(@attendee.event_id)
+    @attendee.destroy
+
+    redirect_to event_path(@event)
   end
 
   private
