@@ -70,7 +70,7 @@
         </div>
       <% end %>
 
-      <% if @guest == current_user %>
+      <% if @guest && @guest.attendee_id == current_user.id %>
           <div class="bubble-card">
             <%= simple_form_for(@comment) do |f| %>
               <%= f.error_notification %>
