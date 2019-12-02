@@ -8,7 +8,7 @@ class EventsController < ApplicationController
     @event = Event.new
     @events = Event.all
     @movie = Movie.find_by_id(params[:movie_id])
-    
+
     @movies = Movie.all
   end
 
@@ -22,7 +22,8 @@ class EventsController < ApplicationController
 
     @event = Event.create(event_params)
 
-    if @event.update(datetime: datetime_params)
+    if @event.update(datetime: datetime_formatted)
+      binding.pry
       redirect_to movie_path(@event.movie_id)
     else
       @event.destroy
