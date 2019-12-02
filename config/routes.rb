@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :guestlists
   root to: "movies#home"
   resources :comments
-  resources :events, only: [:index, :show, :destroy, :edit, :update]
+  resources :events
   resources :movies
   resources :reviews
   resources :to_watches, only: [:create, :update]
