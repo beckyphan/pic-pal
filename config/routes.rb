@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :guestlists
   root to: "movies#home"
   resources :comments
-  resources :events
+  resources :events, only: [:index, :show, :destroy, :edit, :update]
   resources :movies
   resources :reviews
   resources :to_watches, only: [:create, :update]
@@ -52,8 +52,6 @@ end
 #                                       PUT      /comments/:id(.:format)                                                                  comments#update
 #                                       DELETE   /comments/:id(.:format)                                                                  comments#destroy
 #                                events GET      /events(.:format)                                                                        events#index
-#                                       POST     /events(.:format)                                                                        events#create
-#                             new_event GET      /events/new(.:format)                                                                    events#new
 #                            edit_event GET      /events/:id/edit(.:format)                                                               events#edit
 #                                 event GET      /events/:id(.:format)                                                                    events#show
 #                                       PATCH    /events/:id(.:format)                                                                    events#update
@@ -103,4 +101,6 @@ end
 #                         user_to_watch GET      /users/:user_id/to_watches/:id(.:format)                                                 to_watches#show
 #                                       GET      /users/:id(.:format)                                                                     users#show
 #                      new_movie_review GET      /movies/:movie_id/reviews/new(.:format)                                                  reviews#new
+#                                       GET      /movies/:id(.:format)                                                                    movies#show
+#                       new_movie_event GET      /movies/:movie_id/events/new(.:format)                                                   events#new
 #                                       GET      /movies/:id(.:format)                                                                    movies#show

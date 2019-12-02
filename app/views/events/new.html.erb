@@ -7,7 +7,7 @@
 </style>
 
 <div class="form-container-1">
-  <h2 class="center-text">add new event</h2>
+  <h2 class="center-text">add new event for <%= @movie.name %></h2>
 
   <%= simple_form_for(@event) do |f| %>
     <%= f.error_notification %>
@@ -17,12 +17,12 @@
       <%= f.input :title %>
       <%= f.input :datetime %>
       <%= f.input :location %>
-      <%= f.input :movie_id %>
+      <%= f.input :movie_id, as: :hidden, input_html: { value: params[:id] } %>
       <%# <%= f.input :movie_id, as: :select #need to correct dropdown menu with list of movies %>
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "Create" %>
+      <center><%= f.button :submit, "Create" %></center>
     </div>
   <% end %>
 
