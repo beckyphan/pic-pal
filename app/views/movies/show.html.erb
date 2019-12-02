@@ -86,19 +86,7 @@
           </div>
         <% end %>
 
-      <% else %>
-
-        <%= simple_form_for(@update_watched) do |f| %>
-          <%= f.error_notification %>
-          <div class="form-inputs">
-            <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
-            <%= f.input :movie_id, as: :hidden, input_html: { value: @movie.id } %>
-            <%= f.input :watched, as: :hidden, input_html: { value: true } %>
-          </div>
-          <div class="form-actions">
-            <%= f.button :submit, "Seen" %>
-          </div>
-        <% end %>
+      <% elsif @update_watched.watched == true %>
 
         <%= simple_form_for(@update_watched) do |f| %>
           <%= f.error_notification %>
@@ -109,6 +97,20 @@
           </div>
           <div class="form-actions">
             <%= f.button :submit, "Haven't Seen" %>
+          </div>
+        <% end %>
+
+      <% else %>
+      
+        <%= simple_form_for(@update_watched) do |f| %>
+          <%= f.error_notification %>
+          <div class="form-inputs">
+            <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
+            <%= f.input :movie_id, as: :hidden, input_html: { value: @movie.id } %>
+            <%= f.input :watched, as: :hidden, input_html: { value: true } %>
+          </div>
+          <div class="form-actions">
+            <%= f.button :submit, "Seen" %>
           </div>
         <% end %>
 
