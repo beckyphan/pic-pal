@@ -62,34 +62,59 @@
       <% end %>
       <br>
       <% if @watched.size == 0 %>
-        <%= simple_form_for(@to_watch) do |f| %>
+        <%= simple_form_for(@new_watch) do |f| %>
           <%= f.error_notification %>
-
           <div class="form-inputs">
             <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
             <%= f.input :movie_id, as: :hidden, input_html: { value: @movie.id } %>
             <%= f.input :watched, as: :hidden, input_html: { value: false } %>
           </div>
-
           <div class="form-actions">
             <%= f.button :submit, "Want to See" %>
           </div>
         <% end %>
 
-          <%= simple_form_for(@towatch) do |f| %>
-            <%= f.error_notification %>
-
-            <div class="form-inputs">
-              <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
-              <%= f.input :movie_id, as: :hidden, input_html: { value: @movie.id } %>
-              <%= f.input :watched, as: :hidden, input_html: { value: true } %>
-            </div>
-
-            <div class="form-actions">
-              <%= f.button :submit, "Seen" %>
-            </div>
+        <%= simple_form_for(@new_watch) do |f| %>
+          <%= f.error_notification %>
+          <div class="form-inputs">
+            <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
+            <%= f.input :movie_id, as: :hidden, input_html: { value: @movie.id } %>
+            <%= f.input :watched, as: :hidden, input_html: { value: true } %>
+          </div>
+          <div class="form-actions">
+            <%= f.button :submit, "Seen" %>
+          </div>
         <% end %>
+
       <% else %>
+
+        <%= simple_form_for(@update_watched) do |f| %>
+          <%= f.error_notification %>
+          <div class="form-inputs">
+            <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
+            <%= f.input :movie_id, as: :hidden, input_html: { value: @movie.id } %>
+            <%= f.input :watched, as: :hidden, input_html: { value: true } %>
+          </div>
+          <div class="form-actions">
+            <%= f.button :submit, "Seen" %>
+          </div>
+        <% end %>
+
+        <%= simple_form_for(@update_watched) do |f| %>
+          <%= f.error_notification %>
+          <div class="form-inputs">
+            <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
+            <%= f.input :movie_id, as: :hidden, input_html: { value: @movie.id } %>
+            <%= f.input :watched, as: :hidden, input_html: { value: false } %>
+          </div>
+          <div class="form-actions">
+            <%= f.button :submit, "Haven't Seen" %>
+          </div>
+        <% end %>
+
+      <% end %>
+      <% binding.pry %>
+      <% if @watched.size > 0 && @update_watched.watched == true %>
         <%= link_to new_movie_review_path(@movie.id), class: "opaque" do %>
           <button>Add a Review</button>
         <% end %>

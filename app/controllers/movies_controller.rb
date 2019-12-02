@@ -24,9 +24,10 @@ class MoviesController < ApplicationController
     @movie = Movie.find_by_id(params[:id])
     @events = []
     @events << Event.find_by(movie_id: @movie.id)
-    
-    @to_watch = ToWatch.new
+
     @watched = ToWatch.where(user_id: current_user.id, movie_id: @movie.id)
+    @new_watch = ToWatch.new
+    @update_watched = @watched.first
   end
 
   def edit
