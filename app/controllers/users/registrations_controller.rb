@@ -13,8 +13,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     super
     @user.update(configure_sign_up_params)
-    
-    redirect_to user_path(@user)
+
+    # redirect_to user_path(@user)
   end
 
   # GET /resource/edit
