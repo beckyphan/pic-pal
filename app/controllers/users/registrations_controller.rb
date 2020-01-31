@@ -13,8 +13,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     super
     @user.update(configure_sign_up_params)
-
-    # redirect_to user_path(@user)
   end
 
   # GET /resource/edit
@@ -54,9 +52,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_sign_up_path_for(resource)
+    user_path(@user)
+  end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
